@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-center">Enter the ingredient of your new cocktail</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <% ingredient_name = [] %>
+      <% @ingredients.each do |ingredient| %>
+        <% name = ingredient.name %>
+        <% ingredient_name << name %>
+      <% end %>
+      <%= simple_form_for [@cocktail, @ingredient, @dose] do |f| %>
+        <%= f.input :description, input_html: { placeholder: "10cl" } %>
+        <%= f.input :ingredient, as: :select, collection: ingredient_name, include_blank:  "Pick up the ingredient" %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

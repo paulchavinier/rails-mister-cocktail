@@ -1,0 +1,17 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1455621481073-d5bc1c40e3cb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8da45f0fbede6fba674674a857e3b7d9'); background-size: cover">
+  <div class="card-description">
+    <h2><%= cocktail.name %></h2>
+    <p>
+      <ol class = "list-unstyled">
+        <% @cocktail.doses.each do |dose| %>
+        <li>
+          <%=dose.description %>
+          <%= dose.ingredient.name %>
+        </li>
+        <% end %>
+      </ol>
+    </p>
+  </div>
+  <img class="card-user avatar" src="http://placehold.it/50x50">
+  <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
+</div>
