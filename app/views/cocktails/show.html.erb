@@ -1,0 +1,20 @@
+<body class="text-center">
+  <h2><%= @cocktail.name %></h2>
+  <h3>Doses: </h3>
+  <% @cocktail.doses.each_with_index do |dose, index| %>
+  <ul class = "list-unstyled">
+    <li>
+      <%= "#{index + 1} - #{dose.description}" %>
+    </li>
+  </ul>
+  <% end %>
+
+
+
+  <h4><%=link_to "back to the Sazerac Ultimate Cocktail Guide", cocktails_path%></h4>
+  <h3><%=link_to "Add a dose to this cocktail", new_cocktail_dose_path(params[:id])%></h4>
+
+
+
+
+</body>

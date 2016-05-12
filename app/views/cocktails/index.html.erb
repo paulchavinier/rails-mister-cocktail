@@ -1,0 +1,12 @@
+<body class="text-center">
+  <h2>Welcome to Sazerac Ultimate Cocktail Guide ! </h2>
+
+<% @cocktails.each do |cocktail| %>
+  <ul class = "list-unstyled">
+    <li>
+     <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </li>
+  </ul>
+  <% end %>
+<h2> <%= link_to "create your cocktail", new_cocktail_path %> </h2>
+</body>
