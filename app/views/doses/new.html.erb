@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="homepage">
   <div class="row">
     <div class="col-xs-12">
       <h1 class="text-center">Enter the ingredient of your new cocktail</h1>
@@ -15,7 +15,17 @@
         <%= f.input :description, input_html: { placeholder: "10cl" } %>
         <%= f.input :ingredient, as: :select, collection: ingredient_name, include_blank:  "Pick up the ingredient" %>
         <%= f.submit class: "btn btn-primary" %>
+
+        <%if@dose.errors.any?%>
+          <ul>
+            <%@dose.errors.full_message.each do |message| %>
+              <%= message %>
+            <% end %>
+          </ul>
+      <% end %>
+
       <% end %>
     </div>
   </div>
 </div>
+

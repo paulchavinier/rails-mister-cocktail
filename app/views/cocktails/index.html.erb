@@ -1,12 +1,13 @@
-<body class="text-center" style="background-image: url('https://images.unsplash.com/photo-1455621481073-d5bc1c40e3cb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8da45f0fbede6fba674674a857e3b7d9'); background-size: cover">
-  <h2>Welcome to Sazerac Ultimate Cocktail Guide ! </h2>
+<body id="homepage">
+  <h2 class="text-center">Welcome to Sazerac Ultimate Cocktail Guide ! </h2>
 
-<% @cocktails.each do |cocktail| %>
-  <ul class = "list-unstyled">
-    <li>
-     <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
-  </ul>
-  <% end %>
-<h2> <%= link_to "create your cocktail", new_cocktail_path %> </h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-6">
+      <%= render 'cocktails/cocktail_small_card', cocktail: @cocktail %>
+    </div>
+  </div>
+</div>
+
 </body>
