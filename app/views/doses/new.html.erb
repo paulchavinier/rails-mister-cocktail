@@ -1,7 +1,7 @@
 <div class="container" id="homepage">
   <div class="row">
     <div class="col-xs-12">
-      <h1 class="text-center">Enter the ingredient of your new cocktail</h1>
+      <h1 class="text-center">Enter the ingredient for a <%=@cocktail.name%></h1>
     </div>
   </div>
   <div class="row">
@@ -11,19 +11,17 @@
         <% name = ingredient.name %>
         <% ingredient_name << name %>
       <% end %>
-      <%= simple_form_for [@cocktail, @ingredient, @dose] do |f| %>
-        <%= f.input :description, input_html: { placeholder: "10cl" } %>
-        <%= f.input :ingredient, as: :select, collection: ingredient_name, include_blank:  "Pick up the ingredient" %>
-        <%= f.submit class: "btn btn-primary" %>
-
-        <%if@dose.errors.any?%>
-          <ul>
-            <%@dose.errors.full_message.each do |message| %>
-              <%= message %>
-            <% end %>
-          </ul>
+      <% if @dose.errors.any? %>
+        <ul>
+          <%@dose.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       <% end %>
-
+      <%= simple_form_for ([@cocktail, @dose]) do |f| %>
+        <%= f.input :description, input_html: { placeholder: "10cl" } %>
+        <%= f.input :ingredient_id, collection: @ingredients, include_blank:  "Pick up the ingredient" %>
+        <%= f.submit class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
