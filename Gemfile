@@ -27,6 +27,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave'
 
 
 gem 'sdoc', '~> 0.4.0', group: :doc
